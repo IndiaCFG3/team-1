@@ -14,36 +14,36 @@
 <body>
 <div class="container">
   <h2>REGISTER</h2>
-  <form action="/" method="POST">
+  <form action="" method="POST">
     <div class="form-group">
         <label for="names">Name:</label>
-        <input type="text" class="form-control" id="name" placeholder="Enter name" required name="names">
+        <input type="text" class="form-control" id="name" placeholder="Enter name" required name="name">
       </div>
 
     <div class="form-group">
       <label for="Username">Username:</label>
-      <input type="Username" class="form-control" id="Username" placeholder="Enter Username" required name="Username">
+      <input type="Username" class="form-control" id="username" placeholder="Enter Username" required name="username">
     </div>
     <div class="form-check">
         <label class="form-check-label">
           <input type="radio" class="form-check-input" name="role" value="student">Student <br> 
-          <input type="radio" class="form-check-input" name="role" value="teacher">Teacher
+          <input type="radio" class="form-check-input" name="role" value="teacher">Teacher 
         </label>
       </div>
 
       <div class="form-group">
         <label for="id">ID:</label>
-        <input type="text" class="form-control" id="id" placeholder="Enter id" required name="ids">
+        <input type="text" class="form-control" id="id" placeholder="Enter id" required name="id">
       </div>
 
       <div class="form-group">
         <label for="email">Email address:</label>
-        <input type="email" class="form-control" placeholder="Enter email" required id="email">
+        <input type="email" class="form-control" placeholder="Enter email" required id="email" name="email">
       </div>
 
     <div class="form-group">
         <label for="pwd">Password:</label>
-        <input type="password" name="pwd" class="form-control" id="pwd" placeholder="Enter password" name="pswd">
+        <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd">
       </div>
 
       <div class="form-group">
@@ -58,12 +58,11 @@
 
       <div class="form-group">
         <label for="couserid">Course ID:</label>
-        <input type="text" name="cid" class="form-control" placeholder="Enter Course ID" id="cid">
+        <input type="text" class="form-control" placeholder="Enter Course ID" id="cid" name="cid">
       </div>
 
-   <input type="submit">
+   <input type="submit" id="submitbtn">
   </form>
 </div>
-<script src="server.js"></script>
 </body>
 </html>

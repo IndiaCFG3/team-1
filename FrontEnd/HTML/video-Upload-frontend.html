@@ -9,7 +9,8 @@
     <link rel="stylesheet" href="video-Upload-frontend.css">
 </head>
 <body style="text-align: center;">
-<h1 style="color: dodgerblue;">Upload your module here !</h1>
+  <input type="file" id="photo" />
+  <button onclick="uploadImage()">Upload Image</button>
 <div class="upload" style="background-color:lightgrey; ">
     
 
@@ -65,4 +66,75 @@
 </div>
     
 </body>
+
+<script>
+    var firebaseConfig = {
+    apiKey: "AIzaSyBzT55ER49RufmIrUyi88Bx3OmoRRxjnVU",
+    authDomain: "cfgbackend.firebaseapp.com",
+    databaseURL: "https://cfgbackend.firebaseio.com",
+    projectId: "cfgbackend",
+    storageBucket: "cfgbackend.appspot.com",
+    messagingSenderId: "36314352711",
+    appId: "1:36314352711:web:22ef2b6becc9264645f562",
+    measurementId: "G-657QEGSJHC"
+  };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    console.log(firebase);
+
+    function uploadImage() {
+      const ref = firebase.storage().ref();
+      const file = document.querySelector("#photo").files[0];
+      const name = +new Date() + "-" + file.name;
+      const metadata = {
+        contentType: file.type
+      };
+      const task = ref.child(name).put(file, metadata);
+      task
+        .then(snapshot => snapshot.ref.getDownloadURL())
+        .then(url => {
+          console.log(url);
+          document.querySelector("#image").src = url;
+        })
+        .catch(console.error);
+    }
+
+const video = document.getElementById('video');
+const canvas = document.getElementById('canvas');
+const snap = document.getElementById("snap");
+const errorMsgElement = document.querySelector('span#errorMsg');
+
+const constraints = {
+  audio: false,
+  video: {
+    width: 400, height: 400
+  }
+};
+
+/
+
+// Load init
+init();
+
+// Draw image
+var context = canvas.getContext('2d');
+snap.addEventListener("click", function() {
+    context.drawImage(video, 0, 0, 640, 480);
+    var image = new Image();
+image.id = "pic";
+image.src = canvas.toDataURL();
+console.log(image.src)
+var button = document.createElement('button')
+button.textContent = 'Upload Image'
+document.body.appendChild(button)
+
+button.onclick = function() {
+    const ref = firebase.storage().ref();
+    ref.child(new Date() + '-' + 'base64').putString(image.src, 'data_url').then(function(snapshot) {
+    console.log('Uploaded a data_url string!');
+    alert("Image Uploaded")
+});
+}
+});
+  </script>
 </html>
