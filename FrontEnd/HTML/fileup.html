@@ -5,24 +5,73 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Firebase Image Upload in Javascript</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=News+Cycle&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="video-Upload-frontend.css">
   </head>
   <body>
     <input type="file" id="photo" />
-    <button onclick="uploadImage()">Upload Image</button>
+    <button onclick="uploadImage()">Upload File</button>
     <!-- Stream video via webcam -->
 
-    <video id="video" width=400 height=400 playsinline controls autoplay></video>
+    <form action="">
+        <input style="height: 1.8rem; width: 20rem; font-size: 1.2rem;" type="text" name="module-name" placeholder="Enter Module Name.." required>
+        
+        </form>
+        
+        <div class="quiz">
+            <h2 style="color:dodgerblue">Create Quiz!</h2>
+        <p>Create a quiz for the module you have just uploaded, and choose the correct answers</p>
+        <form action="/">
+            <h3>Question 1</h3>
+            <p>Enter options:</p>
+            <input  type="text" name="q1" placeholder="Enter question 1" required> <br> <br>
+            <input type="text" name="q1-A" placeholder="Enter option A" required> <br> <br>
+            <input type="text" name="q1-B" placeholder="Enter option B" required> <br> <br>
+            <input type="text" name="q1-C" placeholder="Enter option C" required> <br><br>
+            <input type="text" name="q1-D" placeholder="Enter option D" required> <br><br>
+          <p>Answer: </p><input class="answer" type="text" name="q1-ans" placeholder="A/B/C/D" required> <br>
+        
+          <hr>
+          <h3>Question 2</h3>
+          <p>Enter options:</p>
+          <input  type="text" name="q2" placeholder="Enter question 2" required> <br> <br>
+          <input type="text" name="q2-A" placeholder="Enter option A" required> <br> <br>
+          <input type="text" name="q2-B" placeholder="Enter option B" required> <br> <br>
+          <input type="text" name="q2-C" placeholder="Enter option C" required> <br><br>
+          <input type="text" name="q2-D" placeholder="Enter option D" required> <br><br>
+        <p>Answer: </p><input class="answer" type="text" name="q2-ans" placeholder="A/B/C/D" required> <br>
+        
+        <hr>
+        
+        <h3>Question 3</h3>
+        <p>Enter options:</p>
+        <input  type="text" name="q3" placeholder="Enter question 3" required> <br> <br>
+        <input type="text" name="q3-A" placeholder="Enter option A" required> <br> <br>
+        <input type="text" name="q3-B" placeholder="Enter option B" required> <br> <br>
+        <input type="text" name="q3-C" placeholder="Enter option C" required> <br><br>
+        <input type="text" name="q3-D" placeholder="Enter option D" required> <br><br>
+        <p>Answer: </p><input class="answer" type="text" name="q3-ans" placeholder="A/B/C/D" required> <br>
+        <br><br>
+        <input type="submit" class="submitButton">
+        
+        </form>
+</div>        
 
-<!-- Trigger canvas web API -->
-    <button id="snap">Capture</button>
 
-<!-- Webcam video snapshot -->
-<canvas id="canvas" width="640" height="480"></canvas>
+
   </body>
   <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-storage.js"></script>
 
   <script>
+      var urll='';
     var firebaseConfig = {
     apiKey: "AIzaSyBzT55ER49RufmIrUyi88Bx3OmoRRxjnVU",
     authDomain: "cfgbackend.firebaseapp.com",
@@ -38,6 +87,7 @@
     console.log(firebase);
 
     function uploadImage() {
+        console.log("hi");
       const ref = firebase.storage().ref();
       const file = document.querySelector("#photo").files[0];
       const name = +new Date() + "-" + file.name;
@@ -49,6 +99,21 @@
         .then(snapshot => snapshot.ref.getDownloadURL())
         .then(url => {
           console.log(url);
+            urll=url
+            var settings = {
+  "url": "http://127.0.0.1:8000/videos/",
+  "method": "POST",
+  "timeout": 0,
+  "headers": {
+    "Content-Type": "application/json"
+  },
+  "data": JSON.stringify({"url":"kkfebwkjb"}),
+};
+
+$.ajax(settings).done(function (response) {
+  console.log(response);
+});
+
           document.querySelector("#image").src = url;
         })
         .catch(console.error);
@@ -66,21 +131,8 @@ const constraints = {
   }
 };
 
-// Access webcam
-async function init() {
-  try {
-    const stream = await navigator.mediaDevices.getUserMedia(constraints);
-    handleSuccess(stream);
-  } catch (e) {
-    errorMsgElement.innerHTML = `navigator.getUserMedia error:${e.toString()}`;
-  }
-}
 
-// Success
-function handleSuccess(stream) {
-  window.stream = stream;
-  video.srcObject = stream;
-}
+
 
 // Load init
 init();

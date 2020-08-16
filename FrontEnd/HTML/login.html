@@ -9,22 +9,23 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="../JS/login.js"></script>
 </head>
 <body>
     <br><br><br>
 <div class="container">
   <h2>WELCOME</h2>
 
-  <form action="/action_page.php">
+  <form action="" method="POST">
     <div class="form-group">
       <label for="username">Username:</label>
       <input type="text" class="form-control" id="username" placeholder="Enter Username" name="username">
     </div>
     <div class="form-group">
       <label for="pwd">Password:</label>
-      <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd">
+      <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd">
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button id="submitbtn" type="submit" class="btn btn-primary">Submit</button>
   </form>
 
   <br>

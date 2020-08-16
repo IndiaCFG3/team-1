@@ -22,14 +22,18 @@ class userList(APIView):
         dict_str = request.body.decode("UTF-8")
         mydata = ast.literal_eval(dict_str)
         flag=0
+        print(mydata)
         if(mydata['work']=='login'):
+            print(mydata)
             print(users.objects.filter(username=mydata['name'],password=mydata['password']))
             course_qs = users.objects.filter(username=mydata['name'],password=mydata['password'])
             for i in course_qs:
                 flag=1
+            
         else:
             b = users(name=mydata['name'], role=mydata['role'],username=mydata['username'],email=mydata['email'],password=mydata['password'],organisation=mydata['organisation'],courseID=mydata['courseID'],courseName=mydata['courseName'])
             b.save()
+            print(mydata)
             flag=1
         return Response(flag)
     
@@ -45,7 +49,13 @@ class videoList(APIView):
         return Response(serializer.data)
 
     def post(self,request):
-        pass
+        if(request.method=="POST"):
+            dict_str = request.body.decode("UTF-8")
+            mydata = ast.literal_eval(dict_str)
+            print(mydata['url'])
+            video.objects.create(url=mydata['url'],courseName="App Development",courseID="ouh32jb",moduleName="Getting Started")
+            return Response('Saved')
+       
 
     
 
