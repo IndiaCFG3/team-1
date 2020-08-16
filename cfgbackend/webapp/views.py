@@ -142,4 +142,26 @@ def uploadVideoBE(request):
     else:
         return (HttpResponse('Saved not'))
 
+    def StudentDashBoard(request,id):
+    coursesQuery=StudentCourses.objects.filter(student_id=id).values()
+    courses=[]
+    for i in coursesQuery:
+        obj={}
+        obj.course=i.name
+        obj.desc=i.desc
+        courses.append(obj)
+    return(render(request,'studentCourses.html'))
+
+def CourseVideo(request):
+    Vid=Video.objects.filter(id=id).values()
+    video_url=Vid[0].url
+    Questions=Question.objects.filter(video_id=Vid[0])
+    questions=[]
+    for i in Questions:
+        obj={}
+        obj.ques=i.question_text
+        obj.options=[]
+        obj.options.append(i.opt_1,i.opt_2,i.opt_3,i.opt_4)
+        questions.append(obj)
+    return(render(request,'CourseVideo.html'))
 
