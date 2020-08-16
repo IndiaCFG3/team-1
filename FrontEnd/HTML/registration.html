@@ -14,7 +14,7 @@
 
 <div class="container">
   <h2>REGISTER</h2>
-  <form action="" method="POST">
+  <form action="/" method="POST">
     <div class="form-group">
         <label for="names">Name:</label>
         <input type="text" class="form-control" id="name" placeholder="Enter name" name="names">
@@ -38,33 +38,32 @@
 
       <div class="form-group">
         <label for="email">Email address:</label>
-        <input type="email" class="form-control" placeholder="Enter email" id="email">
+        <input type="email" name="email" class="form-control" placeholder="Enter email" id="email">
       </div>
 
     <div class="form-group">
         <label for="pwd">Password:</label>
-        <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd">
+        <input type="password" name="pwd" class="form-control" id="pwd" placeholder="Enter password" name="pswd">
       </div>
 
       <div class="form-group">
         <label for="organisation">Organisation:</label>
-        <input type="text" class="form-control" placeholder="Enter organisation" id="org">
+        <input type="text"  name="org" class="form-control" placeholder="Enter organisation" id="org">
       </div>
 
       <div class="form-group">
         <label for="course">Course Name:</label>
-        <input type="text" class="form-control" placeholder="Enter Course name" id="cname">
+        <input type="text" name="cname" class="form-control" placeholder="Enter Course name" id="cname">
       </div>
 
       <div class="form-group">
         <label for="couserid">Course ID:</label>
-        <input type="text" class="form-control" placeholder="Enter Course ID" id="cid">
+        <input type="text" name="cid" class="form-control" placeholder="Enter Course ID" id="cid">
       </div>
 
-    <button type="button" class="btn btn-primary" id="submitbtn">Submit</button>
+   <input type="submit" >
   </form>
 </div>
-
+<script src="server.js"></script>
 </body>
 </html>
-
