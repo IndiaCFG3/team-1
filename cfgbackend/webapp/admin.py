@@ -3,4 +3,5 @@ from . models import users,Course
 
 admin.register(Course)
 admin.site.register(users)
+admin.register(Course)
 

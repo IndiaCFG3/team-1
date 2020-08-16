@@ -25,4 +25,5 @@ urlpatterns = [
     path('create-course-backend',views.createCourse),
     path('create-course',views.index),
     path('dashboard/',views.Dashboard),
+    
 ]

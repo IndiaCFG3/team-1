@@ -1,11 +1,12 @@
 $(document).ready(function(){
     $("#submitbtn").click(function(){
+	console.log("Hi")
         var settings = {
-            "url": "localhost",
+            "url": "http://localhost:8000/users/",
             "method": "POST",
             "timeout": 0,
             "headers": {
-              "Content-Type": "application/json"
+              "Content-Type": "application/json",
             },
             "data": JSON.stringify([{"id":1,"name":"Utkasrh",
             "role":"Student","username":"utkarsh114",
