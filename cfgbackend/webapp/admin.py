@@ -3,6 +3,5 @@ from . models import users,Course,video
 
 admin.register(Course)
 admin.site.register(users)
-admin.site.register(Course)
 admin.site.register(video)
 
