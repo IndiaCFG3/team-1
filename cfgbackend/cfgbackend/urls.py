@@ -26,5 +26,6 @@ urlpatterns = [
     path('create-course',views.index),
     path('dashboard/',views.Dashboard),
     url('videos/', views.videoList.as_view()),
-    
+    path('create-video',views.uploadVideo),
+    path('create-video-backend',views.uploadVideoBE),
 ]

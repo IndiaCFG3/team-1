@@ -36,6 +36,10 @@ class userList(APIView):
             print(mydata)
             flag=1
         return Response(flag)
+    
+    
+    
+ 
 
         
 class videoList(APIView):
@@ -71,12 +75,14 @@ def createCourse(request):
 def Dashboard(request):
     return(HttpResponse("DashBoard"))
 
+
 def index(request):
     return(render(request,'index.html'))
 
 
-def uploadVideoBE(request):
+def uploadVideo(request):
     if(request.method=="POST"):
+
         QT1=request.POST.get('q1')
         QT1A=request.POST.get('q1-A')
         QT1B = request.POST.get('q1-B')
@@ -104,3 +110,36 @@ def uploadVideoBE(request):
         return (HttpResponse('Saved'))
     else:
         return (HttpResponse('Saved not'))
+
+def uploadVideoBE(request):
+    if(request.method=="POST"):
+
+        QT1=request.POST.get('q1')
+        QT1A=request.POST.get('q1-A')
+        QT1B = request.POST.get('q1-B')
+        QT1C= request.POST.get('q1-C')
+        QT1D = request.POST.get('q1-D')
+        QT1CA= request.POST.get('q1-ans')
+        Q1=Question.objects.create(question_text=QT1,opt_1=QT1A,opt_2=QT1B,opt_3=QT1C,opt_4=QT1D,video_id=Vid,correct_answer=QT1CA)
+
+        QT2 = request.POST.get('q2')
+        QT2A = request.POST.get('q2-A')
+        QT2B = request.POST.get('q2-B')
+        QT2C = request.POST.get('q2-C')
+        QT2D = request.POST.get('q2-D')
+        QT2CA= request.POST.get('q2-ans')
+        Q2=Question.objects.create(question_text=QT2,opt_1=QT2A,opt_2=QT2B,opt_3=QT2C,opt_4=QT2D,video_id=Vid,correct_answer=QT2CA)
+
+        QT3 = request.POST.get('q3')
+        QT3A = request.POST.get('q3-A')
+        QT3B = request.POST.get('q3-B')
+        QT3C = request.POST.get('q3-C')
+        QT3D = request.POST.get('q3-D')
+        QT3CA= request.POST.get('q3-ans')
+        Q3=Question.objects.create(question_text=QT3,opt_1=QT3A,opt_2=QT3B,opt_3=QT3C,opt_4=QT3D,video_id=Vid,correct_answer=QT3CA)
+
+        return (HttpResponse('Saved'))
+    else:
+        return (HttpResponse('Saved not'))
+
+

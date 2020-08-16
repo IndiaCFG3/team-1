@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>My Courses</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="editcourse.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+  <h1>Add/Edit Course</h1>
+    <div class="container">
+      <form action="action_page.php">
+        <div class="row">
+          <div class="col-25">
+            <label for="cid">Course ID</label>
+          </div>
+          <div class="col-75">
+            <input type="text" id="cid" name="courseid" placeholder="Course ID">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-25">
+            <label for="cname">Course Name</label>
+          </div>
+          <div class="col-75">
+            <input type="text" id="cname" name="coursename" placeholder="Course name">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-25">
+            <label for="num">Number of students enrolled</label>
+          </div>
+          <div class="col-75">
+            <input type="number" id="num" name="numstud" placeholder="Number of students enrolled">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-25">
+            <label for="ccd">Course Creation Data</label>
+          </div>
+          <div class="col-75">
+            <input type="date" id="ccd" name="creationdate" placeholder="Course creation data">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-25">
+            <label for="csd">Course Start Date</label>
+          </div>
+          <div class="col-75">
+            <input type="date" id="csd" name="startdate" placeholder="Course start date">
+          </div>
+        </div>  
+        <div class="row">
+          <div class="col-25">
+            <label for="csd">Course End Date</label>
+          </div>
+          <div class="col-75">
+            <input type="date" id="ced" name="enddate" placeholder="Course end date">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-25">
+            <label for="desc">Course Description</label>
+          </div>
+          <div class="col-75">
+            <textarea id="desc" name="desc" placeholder="Course description" style="height:200px"></textarea>
+          </div>
+        </div>
+        <div class="row">
+          <input type="submit" value="Submit">
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
