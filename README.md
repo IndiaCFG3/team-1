@@ -1,0 +1,51 @@
+# team-1
+
+# Login
+  ->Utkarsh(BE)
+  ->Archit(FE)
+#course Upload
+  ->Gowtham(BE)
+  ->Sakshyam(BE)
+  ->Pranavi(FE)
+#course access
+  ->Diya(FE)
+  ->Tejaswini(FE)
+
+#Homepages(3)
+  ! Student: Analytics
+  ! Classroom
+  ! Admin: Selecting a course,classroom.
+
+#evaluating course
+#Student Profile(Progress,courses)
+
+----DATABASE SCHEMA ------
+User
+  1.Role(Admin,teacher,student)
+  2.Name
+  3.ID(auto-generated)
+  4.username
+  5.Email
+  6.passsword
+  7.Organization
+Course
+  1.Course ID(pk)
+  2.Course Name  
+  3.Course Instructors
+  4.Created By
+  5.Description
+  6.Number of students enrolled
+  7.Course creation date
+  8.Validity of the course.(start date, end date)
+  
+Module 
+  1.Module Id(pk)
+  2.Course Id(fk)
+  3.no of videos
+  4.Start Date
+  5.End Date
+
+Questionaire
+  1.Module Id(pk)
+  2. Video
+  3. quiz
