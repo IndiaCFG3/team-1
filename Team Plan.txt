@@ -48,4 +48,8 @@ Questionaire
   2. Video
   3. quiz
 
-    
+ Student
+  1.ID
+  2.Name
+  3.CoursesID
+  4.Teachers
