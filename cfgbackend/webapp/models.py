@@ -1,5 +1,16 @@
 from django.db import models
+from django.contrib.auth.models import User
 
+# Create your models here.
+class Course(models.Model):
+    id = models.AutoField(primary_key=True)
+    name=models.TextField()
+    description=models.TextField()
+    no_of_students=models.IntegerField(default=0)
+    Course_creation=models.DateField()
+    Validity=models.IntegerField()
+    user = models.ForeignKey(User, editable=False, on_delete=models.CASCADE
+                             
 class users(models.Model):
     name=models.CharField(max_length=10)
     role=models.CharField(max_length=10)
