@@ -4,10 +4,10 @@ from django.shortcuts import get_object_or_404
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-from . serializers import UserSerializer
+from . serializers import UserSerializer,VideoSerializer
 import ast
 from django.shortcuts import render,redirect
-from . models import users,Course
+from . models import users,Course,video
 from datetime import date
 
 
@@ -32,6 +32,18 @@ class userList(APIView):
             b.save()
             flag=1
         return Response(flag)
+
+        
+class videoList(APIView):
+    def get(self,request):
+        user1=video.objects.all()
+        serializer=VideoSerializer(user1,many=True)
+        return Response(serializer.data)
+
+    def post(self,request):
+        pass
+
+    
 
 def createCourse(request):
     if(request.method=="POST"):
