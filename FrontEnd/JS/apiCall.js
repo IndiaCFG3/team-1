@@ -2,7 +2,7 @@ $(document).ready(function(){
     $("#submitbtn").click(function(){
         var settings = {
             "url": "localhost",
-            "method": "GET",
+            "method": "POST",
             "timeout": 0,
             "headers": {
               "Content-Type": "application/json"
