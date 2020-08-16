@@ -22,4 +22,8 @@ from webapp import views
 urlpatterns = [
     url('admin/', admin.site.urls),
     url('users/', views.userList.as_view()),
+    path('create-course-backend',views.createCourse),
+    path('create-course',views.index),
+    path('dashboard/',views.Dashboard),
+    
 ]

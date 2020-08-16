@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 class users(models.Model):
     name=models.CharField(max_length=10)
@@ -13,12 +14,17 @@ class users(models.Model):
     def __str__(self):
         return self.username
 
-
-class videos(models.Model):
-    url=models.CharField(max_length=60)
-    courseID=models.CharField(max_length=20)
-    courseName=models.CharField(max_length=20)
-    organisation=models.CharField(max_length=20)
-
+class Course(models.Model):
+    id = models.AutoField(primary_key=True)
+    name=models.TextField()
+    description=models.TextField()
+    no_of_students=models.IntegerField(default=0)
+    Course_creation=models.DateField()
+    Validity=models.IntegerField()
+    user = models.ForeignKey(User, editable=False, on_delete=models.CASCADE)
+    
     def __str__(self):
-        return self.url
+        return self.name
+
+
+

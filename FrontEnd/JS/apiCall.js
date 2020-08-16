@@ -1,5 +1,6 @@
 $(document).ready(function(){
     $("#submitbtn").click(function(){
+	console.log("Hi")
         var settings = {
             "url": "http://localhost:8000/users/",
             "method": "POST",
