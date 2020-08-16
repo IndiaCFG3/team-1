@@ -9,7 +9,10 @@ class Course(models.Model):
     no_of_students=models.IntegerField(default=0)
     Course_creation=models.DateField()
     Validity=models.IntegerField()
-    user = models.ForeignKey(User, editable=False, on_delete=models.CASCADE
+    user = models.ForeignKey(User, editable=False, on_delete=models.CASCADE)
+    
+    def __str__(self):
+        return self.username
                              
 class users(models.Model):
     name=models.CharField(max_length=10)
