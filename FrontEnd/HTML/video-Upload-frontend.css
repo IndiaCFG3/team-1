@@ -1,0 +1,36 @@
+h1,h2,p,input {
+    font-family: 'News Cycle', sans-serif;
+}
+
+input {
+    width: 250px;
+}
+
+.upload {
+    margin-left: 550px;
+    width: 250px;
+    height: 250px;
+    align-content: center;
+   
+}
+
+.uploadButton {
+    height: 80px;
+    width: 100px;
+    position: relative;
+    margin-top: 50px;
+}
+
+
+
+
+.submitButton {
+    color: white;
+    font-size: 2rem;
+background-color: dodgerblue;
+
+}
+
+.answer {
+    width: 3rem;
+}
