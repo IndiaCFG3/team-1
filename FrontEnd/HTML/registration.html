@@ -8,12 +8,13 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="../JS/apiCall.js"></script>
 </head>
 <body>
 
 <div class="container">
   <h2>REGISTER</h2>
-  <form action="/action_page.php">
+  <form action="" method="POST">
     <div class="form-group">
         <label for="names">Name:</label>
         <input type="text" class="form-control" id="name" placeholder="Enter name" name="names">
@@ -60,9 +61,10 @@
         <input type="text" class="form-control" placeholder="Enter Course ID" id="cid">
       </div>
 
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="button" class="btn btn-primary" id="submitbtn">Submit</button>
   </form>
 </div>
 
 </body>
 </html>
+
