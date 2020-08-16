@@ -35,3 +35,12 @@ class video(models.Model):
     def __str__(self):
         return self.courseID
 
+class Question(models.Model):
+    question_text=models.TextField()
+    opt_1=models.TextField()
+    opt_2 = models.TextField()
+    opt_3 = models.TextField()
+    opt_4 = models.TextField()
+    correct_answer=models.TextField()
+    def _str_(self):
+        return self.question_text
